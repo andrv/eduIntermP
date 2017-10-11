@@ -1,0 +1,37 @@
++----------\
+| adresse   >
++----------/
+      |
++##########+
++""""""""""+
++----\ +---+
+|Bernd>| O-+->+###########################+
++----/ +---+  +"""""""""""""""""""""""""""+
+              +------\ +------------------+
+              |Name   >|Bernd Dulfer      |
+              +------< +------------------+
+              |Str    >|Kapellenstr. 1    |
+              +------< +------------------+
+              |EMail  >|bdulfer@sybase.com|
+              +------< +------------------+
+              |Buecher>|        O---------+->+#####################+
+              +------/ +------------------+  +"""""""""""""""""""""+
+                                             |Der Herr der Ringe   |
+                                             +---------------------+
+                                             |Per Anhalter durch...|
+                                             +---------------------+
+                                             |Die Farben der Magie |
+                                             +---------------------+
+
+
+
+$adresse{Bernd} = {
+                      Name    =>  'Bernd Dulfer',
+                      Str     =>  'Kapellenstr. 1',
+                      EMail   =>  'bdulfer@sybase.com',
+                      Buecher =>  [
+                                   'Der Herr der Ringe',
+                                   'Per Anhalter durch die Galaxie',
+                                   'Die Farben der Magie'
+                                  ]
+                  };
