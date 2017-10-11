@@ -1,1 +1,3 @@
-# eduIntermP
+# reading 'Intermediate Perl'
+
+Exersices
