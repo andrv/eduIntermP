@@ -18,7 +18,12 @@ my %all = (
 check_items_for_all(\%all);
 
 sub check_items_for_all {
-	die "You need to fill in check_items_for_all";
+    my $all = shift;
+
+    foreach my $person (keys %$all) {
+        check_required_items($person, $all->{$person});
+    }
+    # die "You need to fill in check_items_for_all";
 }
 
 sub check_required_items { 
