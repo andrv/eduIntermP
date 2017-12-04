@@ -6,6 +6,7 @@ use 5.014;
 use Data::Dumper;
 
 __END__
+# make_coconet_data.pl
 
 my $records = $ARGV[0] // 10_000;
 
