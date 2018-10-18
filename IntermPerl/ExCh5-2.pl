@@ -5,6 +5,11 @@ use warnings;
 use 5.014;
 use Data::Dumper;
 
+open(my $fh, "<", "ExCh5-2-coconet.dat")
+    or die "Can't open < ExCh5-2-coconet.dat: $!";
+
+close $fh;
+
 __END__
 # make_coconet_data.pl
 
