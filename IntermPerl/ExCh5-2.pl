@@ -8,6 +8,12 @@ use Data::Dumper;
 open(my $fh, "<", "ExCh5-2-coconet.dat")
     or die "Can't open < ExCh5-2-coconet.dat: $!";
 
+while ( ! eof($fh) ) {
+    defined( my $line = readline $fh )
+        or die "readline failed: $!";
+    # print $line;
+}
+
 close $fh;
 
 __END__
