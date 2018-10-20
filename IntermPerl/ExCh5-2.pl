@@ -20,6 +20,12 @@ while ( ! eof($fh) ) {
 
 # print Dumper \%total_bytes;
 
+for my $source (sort keys %total_bytes) {
+    for my $destination (sort keys %{ $total_bytes{$source} }) {
+        say "$source => $destination: $total_bytes{$source}{$destination} bytes";
+    }
+    say '';
+}
 close $fh;
 
 __END__
