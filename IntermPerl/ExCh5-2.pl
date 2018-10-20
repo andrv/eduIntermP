@@ -8,11 +8,17 @@ use Data::Dumper;
 open(my $fh, "<", "ExCh5-2-coconet.dat")
     or die "Can't open < ExCh5-2-coconet.dat: $!";
 
+my %total_bytes;
 while ( ! eof($fh) ) {
-    defined( my $line = readline $fh )
+    defined( $_ = readline $fh )
         or die "readline failed: $!";
-    # print $line;
+    # print $_;
+
+    my ($source, $destination, $bytes) = split;
+    $total_bytes{$source}{$destination} += $bytes;
 }
+
+# print Dumper \%total_bytes;
 
 close $fh;
 
