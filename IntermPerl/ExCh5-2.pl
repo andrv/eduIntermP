@@ -31,6 +31,7 @@ while ( ! eof($fh) ) {
     my ($source, $destination, $bytes) = split;
     $total_bytes{$source}{$destination} += $bytes;
 }
+close $fh;
 
 # print Dumper \%total_bytes;
 
@@ -40,7 +41,6 @@ for my $source (sort keys %total_bytes) {
     }
     say '';
 }
-close $fh;
 
 __END__
 # make_coconet_data.pl
