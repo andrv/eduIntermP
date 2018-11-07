@@ -23,6 +23,10 @@ close $fhr;
 
 open(my $fhw, ">", "ExCh5-3-coconet.dat")
     or die "Can't open > ExCh5-3-coconet.dat: $!";
+
+for my $source (sort keys %total_bytes) {
+    say $fhw $source;
+}
 close $fhw;
 
 __END__
