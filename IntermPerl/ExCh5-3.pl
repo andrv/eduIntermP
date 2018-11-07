@@ -5,18 +5,25 @@ use warnings;
 use 5.014;
 use Data::Dumper;
 
-open(my $fh, "<", "ExCh5-2-coconet.dat")
+open(my $fhr, "<", "ExCh5-2-coconet.dat")
     or die "Can't open < ExCh5-2-coconet.dat: $!";
 
 my %total_bytes;
-while ( ! eof($fh) ) {
-    defined( $_ = readline $fh )
+while ( ! eof($fhr) ) {
+    defined( $_ = readline $fhr )
         or die "readline failed: $!";
     # print $_;
 
     my ($source, $destination, $bytes) = split;
+    push @{ $total_bytes{$source} }, [$destination, $bytes];
 }
-close $fh;
+close $fhr;
+
+#print Dumper \%total_bytes;
+
+open(my $fhw, ">", "ExCh5-3-coconet.dat")
+    or die "Can't open > ExCh5-3-coconet.dat: $!";
+close $fhw;
 
 __END__
 Starting with your data structure from Exercise 2, rewrite the coconet.dat
