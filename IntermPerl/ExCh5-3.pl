@@ -26,6 +26,7 @@ open(my $fhw, ">", "ExCh5-3-coconet.dat")
 
 for my $source (sort keys %total_bytes) {
     say $fhw $source;
+    my ($destination, $bytes) = split @{ $total_bytes{$source} };
 }
 close $fhw;
 
