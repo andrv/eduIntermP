@@ -15,17 +15,23 @@ while ( ! eof($fhr) ) {
     # print $_;
 
     my ($source, $destination, $bytes) = split;
+    $total_bytes{$source}{$destination} += $bytes;
+    $total_bytes{$source}{summa} += $bytes;
 }
 close $fhr;
 
 #print Dumper \%total_bytes;
 
+for my $source (sort { $total_bytes{$b}{summa} <=> $total_bytes{$a}{summa} } keys %total_bytes) {
+    for my $destination (sort { $total_bytes{$source}{$b} <=> $total_bytes{$source}{$a} } keys %{ $total_bytes{$source} }) {
+        say "$source => $destination: $total_bytes{$source}{$destination} bytes";
+    }
+    say '';
+}
+
 open(my $fhw, ">", "ExCh5-3-coconet.dat")
     or die "Can't open > ExCh5-3-coconet.dat: $!";
 
-for my $source (sort keys %total_bytes) {
-    say $fhw $source;
-}
 close $fhw;
 
 __END__
