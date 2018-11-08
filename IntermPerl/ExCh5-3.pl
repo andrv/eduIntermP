@@ -15,7 +15,6 @@ while ( ! eof($fhr) ) {
     # print $_;
 
     my ($source, $destination, $bytes) = split;
-    push @{ $total_bytes{$source} }, [$destination, $bytes];
 }
 close $fhr;
 
@@ -26,7 +25,6 @@ open(my $fhw, ">", "ExCh5-3-coconet.dat")
 
 for my $source (sort keys %total_bytes) {
     say $fhw $source;
-    my ($destination, $bytes) = split @{ $total_bytes{$source} };
 }
 close $fhw;
 
