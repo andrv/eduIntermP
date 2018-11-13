@@ -1,12 +1,27 @@
+# how to run it
+# perl bytecounts bytecounts-in
+
+use Data::Dump qw(dump);
+use Data::Printer;
+
+CORE::say 'Data::Dump dump';
 my %total_bytes;
 while ( <>) {
     my ($source, $destination, $bytes) = split; 
     $total_bytes{$source}{ $destination} += $bytes;
 }
-for my $source (sort keys %total_bytes) {
-    for my $destination (sort keys %{ $total_bytes{$source} }) {
-        print "$source => $destination:",
-        " $total_bytes{$source}{$destination} bytes\n";
-    }
-    print "\n";
-}
+
+dump( \%total_bytes );
+
+CORE::say '';
+
+CORE::say 'Data::Printer p';
+p( %total_bytes );
+
+#for my $source (sort keys %total_bytes) {
+#    for my $destination (sort keys %{ $total_bytes{$source} }) {
+#        print "$source => $destination:",
+#        " $total_bytes{$source}{$destination} bytes\n";
+#    }
+#    print "\n";
+#}
