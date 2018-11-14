@@ -37,7 +37,7 @@ close $fhw;
 __END__
 The program from Exercise 3 in Chapter 5 needs to read the entire data file
 each time it runs. However, the Professor has a new router logfile each day and
-doesn’t want to keep all that data in one giant file thattakes longer and
+doesn’t want to keep all that data in one giant file that takes longer and
 longer to process.  Fix up that program to keep the running totals in a data
 file so the Professor can run it on each day’s logs to get the new totals. Use
 the Storable module.
