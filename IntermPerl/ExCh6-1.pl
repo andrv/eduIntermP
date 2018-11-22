@@ -5,6 +5,8 @@ use warnings;
 use 5.014;
 use Data::Dumper;
 
+use Storable qw(nstore);
+
 open(my $fhr, "<", "ExCh5-2-coconet.dat")
     or die "Can't open < ExCh5-2-coconet.dat: $!";
 
@@ -22,17 +24,7 @@ close $fhr;
 
 #print Dumper \%total_bytes;
 
-open(my $fhw, ">", "ExCh5-3-coconet.dat")
-    or die "Can't open > ExCh5-3-coconet.dat: $!";
-
-for my $source (sort keys %total_bytes) {
-    say $fhw $source;
-    for my $destination (sort keys %{ $total_bytes{$source} }) {
-        say $fhw "  $destination $total_bytes{$source}{$destination}";
-    }
-}
-
-close $fhw;
+nstore \%total_bytes, 'totals';
 
 __END__
 The program from Exercise 3 in Chapter 5 needs to read the entire data file
