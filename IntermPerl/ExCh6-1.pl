@@ -24,7 +24,14 @@ close $fhr;
 
 #print Dumper \%total_bytes;
 
-nstore \%total_bytes, 'totals';
+#my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime(time - 15 * 86400);
+my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime(time);
+$mon += 1; $year += 1900;
+#say "\$hour: $hour, \$min: $min, \$sec: $sec, \$mday: $mday, \$mon: $mon, \$year: ", $year;
+#printf "%02d:%02d:%02d %d-%02d-%02d", $hour, $min, $sec, $year, $mon, $mday; say '';
+my $today = sprintf "%d-%02d-%02d", $year, $mon, $mday;
+
+nstore \%total_bytes, "totals-$today";
 
 __END__
 The program from Exercise 3 in Chapter 5 needs to read the entire data file
