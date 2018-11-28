@@ -21,8 +21,17 @@ sub gilligan_greets {
     }
 }
 
+sub professor_greets {
+    my $person = shift;
+    say "Professor: By my calculations, you must be $person!";
+}
+
 skipper_greets("Gilligan");
 gilligan_greets("Skipper");
+professor_greets('Gilligan');
+professor_greets('Skipper');
+skipper_greets('Professor');
+gilligan_greets('Professor');
 
 __END__
 
