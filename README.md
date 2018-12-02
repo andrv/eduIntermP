@@ -1,3 +1,3 @@
 # reading 'Intermediate Perl'
 
-Exersices
+Exersices and trying stuff
